@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700;900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+  font-family:'Nunito', sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #d7e5fa,
+    #88b6ef,
+    #3073ae,
+    #96c6ed
+  );
+
+  background-size:400% 400%;
+  animation:gradientShift 10s ease infinite;
+
+  position:relative;
+}
+
+/* ===== FONDO ANIMADO ===== */
+
+@keyframes gradientShift{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+}
+
+/* ===== IMAGENES FLOTANTES ===== */
+
+.floating{
+
+  position:fixed;
+
+  top:0;
+
+  pointer-events:none;
+
+  z-index:999;
+
+  animation:floatUp linear infinite;
+
+  opacity:0.85;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+@keyframes floatUp{
+
+  0%{
+
+    transform:
+      translateY(110vh)
+      rotate(0deg);
+
+    opacity:0;
+  }
+
+  10%{
+    opacity:0.9;
+  }
+
+  90%{
+    opacity:0.9;
+  }
+
+  100%{
+
+    transform:
+      translateY(-120vh)
+      rotate(360deg);
+
+    opacity:0;
+  }
+}
+
+/* ===== CONTENIDO ===== */
+
+.container{
+
+  max-width:700px;
+
+  margin:0 auto;
+
+  padding:2rem 1rem 4rem;
+
+  position:relative;
+
+  z-index:2;
+
+  text-align:center;
+}
+
+/* ===== BADGE ===== */
+
+.badge{
+
+  display:inline-block;
+
+  background:#63a6f2;
+
+  color:white;
+
+  font-size:0.85rem;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  padding:6px 18px;
+
+  border-radius:20px;
+
+  margin-bottom:1.2rem;
+
+  animation:pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse{
+
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+}
+
+/* ===== TITULOS ===== */
+
+.sparkle-line{
+
+  font-size:1.5rem;
+
+  margin-bottom:0.5rem;
+
+  letter-spacing:8px;
+
+  color:white;
+}
+
+h1{
+
+  font-family:'Dancing Script', cursive;
+
+  font-size:clamp(2.8rem, 10vw, 5rem);
+
+  color:white;
+
+  line-height:1.1;
+
+  text-shadow:
+    3px 3px 10px rgba(0,0,0,0.25);
+
+  margin-bottom:0.3rem;
+}
+
+.subtitle-emoji{
+
+  font-size:3rem;
+
+  display:block;
+
+  margin:0.5rem 0 1rem;
+
+  animation:swing 2s ease-in-out infinite;
+}
+
+@keyframes swing{
+
+  0%,100%{
+    transform:rotate(-5deg);
+  }
+
+  50%{
+    transform:rotate(5deg);
+  }
+}
+
+/* ===== TARJETAS ===== */
+
+.card{
+
+  background:transparent;
+
+  backdrop-filter:none;
+
+  border-radius:20px;
+
+  padding:1rem;
+
+  margin:1.5rem 0;
+
+  color:white;
+}
+
+.card p{
+
+  font-size:1.1rem;
+
+  line-height:1.8;
+
+  color:white;
+}
+
+/* ===== CARRUSEL LIMPIO ===== */
+
+.carousel-container{
+
+  width:100%;
+
+  max-width:550px;
+
+  margin:0 auto;
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+.carousel{
+
+  display:flex;
+
+  transition:transform 0.8s ease-in-out;
+
+  height:500px;
+}
+
+.carousel img{
+
+  min-width:100%;
+
+  height:100%;
+
+  object-fit:contain;
+
+  border-radius:18px;
+}
+
+/* ===== TEXTOS ===== */
+
+.photos-title{
+
+  font-family:'Dancing Script', cursive;
+
+  font-size:2rem;
+
+  color:white;
+
+  margin-bottom:1rem;
+}
+
+.firma{
+
+  font-family:'Dancing Script', cursive;
+
+  font-size:1.5rem;
+
+  color:#fff;
+
+  margin-top:1rem;
+}
+
+.bottom-emojis{
+
+  font-size:1.8rem;
+
+  letter-spacing:10px;
+
+  margin-top:1.5rem;
+
+  color:white;
+}
