@@ -2,43 +2,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== IMAGENES FLOTANTES ===== */
 
-  const images = [
-    "enfermera.png",
-    "enfermero.png",
-    "EME.png"
-  ];
+const images = [
+  "enfermera.png",
+  "enfermero.png",
+  "EME.png"
+];
 
-  for(let i = 0; i < 18; i++){
+const isMobile = window.innerWidth < 768;
 
-    const img = document.createElement("img");
+for(let i = 0; i < 18; i++){
 
-    img.className = "floating";
+  const img = document.createElement("img");
 
-    img.src =
-      images[
-        Math.floor(
-          Math.random() * images.length
-        )
-      ];
+  img.className = "floating";
 
-    img.style.left =
-      Math.random() * 90 + "vw";
+  img.src =
+    images[
+      Math.floor(
+        Math.random() * images.length
+      )
+    ];
 
-    img.style.animationDuration =
-      (5 + Math.random() * 8) + "s";
+  /* posiciones aleatorias */
 
-    img.style.animationDelay =
-      (Math.random() * 8) + "s";
+  img.style.left =
+    Math.random() * 100 + "vw";
 
-    const size =
-      98 + Math.random() * 70;
+  img.style.top =
+    Math.random() * 100 + "vh";
 
-    img.style.width = size + "px";
-    img.style.height = size + "px";
+  /* duración random */
 
-    document.body.appendChild(img);
-  }
+  img.style.animationDuration =
+    (6 + Math.random() * 10) + "s";
 
+  img.style.animationDelay =
+    (Math.random() * 5) + "s";
+
+  /* tamaños responsive */
+
+  const size = isMobile
+    ? 55 + Math.random() * 35
+    : 95 + Math.random() * 70;
+
+  img.style.width = size + "px";
+  img.style.height = "auto";
+
+  /* movimiento random */
+
+  const moveX =
+    (Math.random() * 400 - 200) + "px";
+
+  const moveY =
+    (Math.random() * 400 - 200) + "px";
+
+  img.style.setProperty("--moveX", moveX);
+  img.style.setProperty("--moveY", moveY);
+
+  document.body.appendChild(img);
+}
   /* ===== MUSICA ===== */
 
   const audio =

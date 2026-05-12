@@ -1,0 +1,22 @@
+{
+    "sourceFile": "script.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1778557247814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1778557296122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n document.addEventListener(\"DOMContentLoaded\", () => {\r\n \r\n   /* ===== IMAGENES FLOTANTES ===== */\r\n \r\n- const images = [\r\n+const images = [\r\n   \"enfermera.png\",\r\n   \"enfermero.png\",\r\n   \"EME.png\"\r\n ];\r\n@@ -22,29 +22,46 @@\n         Math.random() * images.length\r\n       )\r\n     ];\r\n \r\n+  /* posiciones aleatorias */\r\n+\r\n   img.style.left =\r\n-    Math.random() * 85 + \"vw\";\r\n+    Math.random() * 100 + \"vw\";\r\n \r\n+  img.style.top =\r\n+    Math.random() * 100 + \"vh\";\r\n+\r\n+  /* duración random */\r\n+\r\n   img.style.animationDuration =\r\n-    (5 + Math.random() * 8) + \"s\";\r\n+    (6 + Math.random() * 10) + \"s\";\r\n \r\n   img.style.animationDelay =\r\n-    (Math.random() * 8) + \"s\";\r\n+    (Math.random() * 5) + \"s\";\r\n \r\n   /* tamaños responsive */\r\n \r\n   const size = isMobile\r\n     ? 55 + Math.random() * 35\r\n-    : 98 + Math.random() * 70;\r\n+    : 95 + Math.random() * 70;\r\n \r\n   img.style.width = size + \"px\";\r\n   img.style.height = \"auto\";\r\n \r\n+  /* movimiento random */\r\n+\r\n+  const moveX =\r\n+    (Math.random() * 400 - 200) + \"px\";\r\n+\r\n+  const moveY =\r\n+    (Math.random() * 400 - 200) + \"px\";\r\n+\r\n+  img.style.setProperty(\"--moveX\", moveX);\r\n+  img.style.setProperty(\"--moveY\", moveY);\r\n+\r\n   document.body.appendChild(img);\r\n }\r\n-\r\n   /* ===== MUSICA ===== */\r\n \r\n   const audio =\r\n     document.getElementById(\"audio\");\r\n"
+                }
+            ],
+            "date": 1778557247814,
+            "name": "Commit-0",
+            "content": "document.addEventListener(\"DOMContentLoaded\", () => {\r\n\r\n  /* ===== IMAGENES FLOTANTES ===== */\r\n\r\n const images = [\r\n  \"enfermera.png\",\r\n  \"enfermero.png\",\r\n  \"EME.png\"\r\n];\r\n\r\nconst isMobile = window.innerWidth < 768;\r\n\r\nfor(let i = 0; i < 18; i++){\r\n\r\n  const img = document.createElement(\"img\");\r\n\r\n  img.className = \"floating\";\r\n\r\n  img.src =\r\n    images[\r\n      Math.floor(\r\n        Math.random() * images.length\r\n      )\r\n    ];\r\n\r\n  img.style.left =\r\n    Math.random() * 85 + \"vw\";\r\n\r\n  img.style.animationDuration =\r\n    (5 + Math.random() * 8) + \"s\";\r\n\r\n  img.style.animationDelay =\r\n    (Math.random() * 8) + \"s\";\r\n\r\n  /* tamaños responsive */\r\n\r\n  const size = isMobile\r\n    ? 55 + Math.random() * 35\r\n    : 98 + Math.random() * 70;\r\n\r\n  img.style.width = size + \"px\";\r\n  img.style.height = \"auto\";\r\n\r\n  document.body.appendChild(img);\r\n}\r\n\r\n  /* ===== MUSICA ===== */\r\n\r\n  const audio =\r\n    document.getElementById(\"audio\");\r\n\r\n  audio.play().catch(() => {\r\n\r\n    document.body.addEventListener(\r\n      \"click\",\r\n      () => {\r\n        audio.play();\r\n      },\r\n      { once:true }\r\n    );\r\n\r\n  });\r\n\r\n  /* ===== CARRUSEL ===== */\r\n\r\n  const carousel =\r\n    document.getElementById(\"carousel\");\r\n\r\n  let currentSlide = 0;\r\n\r\n  setInterval(() => {\r\n\r\n    const slides =\r\n      carousel.querySelectorAll(\"img\");\r\n\r\n    if(slides.length === 0) return;\r\n\r\n    currentSlide++;\r\n\r\n    if(currentSlide >= slides.length){\r\n      currentSlide = 0;\r\n    }\r\n\r\n    carousel.style.transform =\r\n      `translateX(-${currentSlide * 100}%)`;\r\n\r\n  }, 3000);\r\n\r\n});"
+        }
+    ]
+}
