@@ -302,7 +302,16 @@ videos.forEach(video => {
 
 const slides = document.querySelectorAll('.slide');
 
-let currentSlide = 0;
+/* detecta cual imagen tiene la clase "active" en el HTML */
+/* y arranca el carrusel desde ahi */
+
+let currentSlide = [...slides].findIndex(s => s.classList.contains('active'));
+
+if(currentSlide === -1){
+
+  currentSlide = 0;
+
+}
 
 function showSlide(index){
 
