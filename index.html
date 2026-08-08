@@ -1,47 +1,141 @@
-<!-- MENSAJE -->
-<section class="section reveal">
-
-  <div class="message-card">
-
-    <span class="quote-mark">
-      “
-    </span>
-
-    <p>
-      Hoy es un día especial porque celebramos que hace un tiempo
-      llegó al mundo una persona que, sin darse cuenta,
-      terminaría convirtiéndose en alguien muy especial para mí.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños Emely</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- SPLASH -->
+  <div id="splash">
+    <div class="splash-pulse">
+      🎂
+    </div>
+    <h1 class="splash-title">
+      Feliz cumpleaños Emely ✨
+    </h1>
+    <p class="splash-hint">
+      toca para entrar
     </p>
-
-    <p>
-      Emely, gracias por cada risa, cada momento, cada conversación
-      y por todas esas pequeñas cosas que hacen que compartir
-      momentos contigo siempre tenga algo diferente.
-    </p>
-
-    <p>
-      Espero que este nuevo año de vida venga lleno de cosas bonitas,
-      sueños cumplidos, personas que te quieran bonito y muchos
-      momentos que algún día podamos recordar y decir:
-      “qué buenos tiempos”.
-    </p>
-
-    <p>
-      Nunca olvides lo mucho que vales y lo bonita que es la persona
-      que eres. Sigue siendo tú, con esa forma tan tuya de hacer
-      especiales hasta los momentos más simples.
-    </p>
-
-    <p>
-      Y bueno... tampoco te emociones demasiado.
-      Sigues siendo insoportable de vez en cuando,
-      pero supongo que ya me acostumbré. 😂
-    </p>
-
-    <span class="firma">
-      — MC✨
-    </span>
-
   </div>
-
-</section>
+  <!-- FONDO -->
+  <canvas id="bg"></canvas>
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <span class="tag">
+        Happy Birthday
+      </span>
+      <h1 class="hero-title">
+        Feliz
+        <span class="hero-name">
+          Cumpleaños Emely
+        </span>
+      </h1>
+      <div class="emoji-row">
+        🎂 ✨ 💖 🌙
+      </div>
+      <p class="hero-sub">
+        oficialmente más vieja 🎉
+      </p>
+    </section>
+    <!-- VIDEOS -->
+    <section class="section reveal">
+      <p class="video-label">
+        Momentos
+      </p>
+      <h2 class="video-caption">
+        Evidencia audiovisual de tu existencia
+      </h2>
+      <div class="video-grid">
+        <!-- VIDEO 1 -->
+        <div class="video-wrap">
+          <video controls playsinline class="birthday-video">
+            <source src="V1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!-- VIDEO 2 -->
+        <div class="video-wrap">
+          <video controls playsinline class="birthday-video">
+            <source src="V2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+    <!-- SLIDER -->
+    <section class="section reveal">
+      <p class="section-label">
+        Recuerdos
+      </p>
+      <h2 class="section-title">
+        Fotos que encontramos porque no tenemos nada mejor que hacer
+      </h2>
+      <div class="slider">
+        <div class="slides">
+          <img src="A1.jpg" class="slide active">
+          <img src="A2.jpg" class="slide">
+          <img src="A3.jpg" class="slide">
+          <img src="A4.jpg" class="slide">
+          <img src="A5.jpg" class="slide">
+          <img src="A6.jpg" class="slide">
+        </div>
+      </div>
+    </section>
+    <!-- MENSAJE -->
+    <section class="section reveal">
+      <div class="message-card">
+        <span class="quote-mark">
+          “
+        </span>
+        <p>
+          Hoy es un día especial porque celebramos que hace un tiempo
+          llegó al mundo una persona que, sin darse cuenta,
+          terminaría convirtiéndose en alguien muy especial para mí.
+        </p>
+        <p>
+          Emely, gracias por cada risa, cada momento, cada conversación
+          y por todas esas pequeñas cosas que hacen que compartir
+          momentos contigo siempre tenga algo diferente.
+        </p>
+        <p>
+          Espero que este nuevo año de vida venga lleno de cosas bonitas,
+          sueños cumplidos, personas que te quieran bonito y muchos
+          momentos que algún día podamos recordar y decir:
+          “qué buenos tiempos”.
+        </p>
+        <p>
+          Nunca olvides lo mucho que vales y lo bonita que es la persona
+          que eres. Sigue siendo tú, con esa forma tan tuya de hacer
+          especiales hasta los momentos más simples.
+        </p>
+        <p>
+          Y bueno... tampoco te emociones demasiado.
+          Sigues siendo insoportable de vez en cuando,
+          pero supongo que ya me acostumbré. 😂
+        </p>
+        <span class="firma">
+          — MC✨
+        </span>
+      </div>
+    </section>
+    <!-- MUSICA -->
+    <section class="music-wrap reveal">
+      <button class="music-btn" id="musicBtn">
+        <span class="note">
+          🎵
+        </span>
+        Reproducir música
+      </button>
+      <audio id="bgMusic" autoplay loop>
+        <source src="musica.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+  </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    hecho con sarcasmo y sueño
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
