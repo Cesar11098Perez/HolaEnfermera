@@ -106,6 +106,10 @@ revealOnScroll();
 
 function createConfetti(){
 
+  /* tonos dentro de la paleta vino / oro / crema */
+
+  const hues = [350, 355, 40, 45, 48];
+
   for(let i = 0; i < 120; i++){
 
     const conf = document.createElement('div');
@@ -114,8 +118,10 @@ function createConfetti(){
 
     conf.style.left = Math.random() * 100 + 'vw';
 
+    const hue = hues[Math.floor(Math.random() * hues.length)];
+
     conf.style.background =
-      `hsl(${Math.random()*360},100%,60%)`;
+      `hsl(${hue},70%,${55 + Math.random()*15}%)`;
 
     conf.style.animationDuration =
       (Math.random()*3 + 2) + 's';
@@ -169,7 +175,7 @@ function animate(){
 
   ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  ctx.fillStyle = 'rgba(255,111,216,0.7)';
+  ctx.fillStyle = 'rgba(201,169,97,0.55)';
 
   particles.forEach(p => {
 
@@ -298,14 +304,15 @@ videos.forEach(video => {
 
 });
 
-/* SLIDER AUTOMATICO */
+/* GALERIA: foto principal + miniaturas */
 
-const slides = document.querySelectorAll('.slide');
+const mainImgs = document.querySelectorAll('.main-img');
 
-/* detecta cual imagen tiene la clase "active" en el HTML */
-/* y arranca el carrusel desde ahi */
+const thumbs = document.querySelectorAll('.thumb');
 
-let currentSlide = [...slides].findIndex(s => s.classList.contains('active'));
+/* arranca en la imagen marcada como "active" en el HTML, si existe */
+
+let currentSlide = [...mainImgs].findIndex(img => img.classList.contains('active'));
 
 if(currentSlide === -1){
 
@@ -315,26 +322,54 @@ if(currentSlide === -1){
 
 function showSlide(index){
 
-  slides.forEach(slide => {
+  mainImgs.forEach(img => {
 
-    slide.classList.remove('active');
+    img.classList.remove('active');
 
   });
 
-  slides[index].classList.add('active');
+  thumbs.forEach(t => {
 
-}
+    t.classList.remove('active');
 
-setInterval(() => {
+  });
 
-  currentSlide++;
+  mainImgs[index].classList.add('active');
 
-  if(currentSlide >= slides.length){
+  if(thumbs[index]){
 
-    currentSlide = 0;
+    thumbs[index].classList.add('active');
 
   }
 
-  showSlide(currentSlide);
+  currentSlide = index;
+
+}
+
+/* click en una miniatura muestra esa foto */
+
+thumbs.forEach((thumb, index) => {
+
+  thumb.addEventListener('click', () => {
+
+    showSlide(index);
+
+  });
+
+});
+
+/* autoplay cada 3.5s */
+
+setInterval(() => {
+
+  let next = currentSlide + 1;
+
+  if(next >= mainImgs.length){
+
+    next = 0;
+
+  }
+
+  showSlide(next);
 
 },3500);
